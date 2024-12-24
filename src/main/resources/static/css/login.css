@@ -1,0 +1,42 @@
+/* Sử dụng Bootstrap để giảm CSS tự định nghĩa */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    flex-direction: column;
+}
+
+.login-card {
+    height:400px !important;
+    width: 584px;
+    padding: 40px 60px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.form-control {
+    height: 50px;  /* Chỉ cần đặt chiều cao */
+    padding: 10px;
+}
+
+.btn {
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Căn chỉnh "Quên mật khẩu?" */
+.login-card a {
+    color: #637381;
+}
+
+.login-card form {
+    width: 400px;
+    height: 258px;
+    margin: 0 auto;
+    margin: 30px auto 0;
+}
+
