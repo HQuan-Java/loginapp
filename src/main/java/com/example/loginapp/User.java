@@ -8,25 +8,25 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // STT
+    private Long id;
 
     @Column(name = "name", nullable = false)
-    private String name;  // Tên nhân sự
+    private String name;
 
     @Column(name = "employee_code", unique = true, nullable = false)
-    private String employeeCode;  // Mã nhân sự
+    private String employeeCode;
 
     @Column(name = "email", unique = true, nullable = false)
-    private String email;  // Email
+    private String email;
 
     @Column(name = "role", nullable = false)
-    private String role;  // Quyền (ROLE_ADMIN, ROLE_EMPLOYEE)
+    private String role;
 
     @Column(name = "status", nullable = false)
-    private String status;  // Trạng thái (Active, Inactive)
+    private String status;
 
     @Column(name = "password", nullable = false)
-    private String password;  // Mật khẩu
+    private String password;
 
     // Getters and Setters
     public Long getId() {

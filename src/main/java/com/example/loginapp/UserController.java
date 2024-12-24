@@ -15,38 +15,35 @@ import java.util.Optional;
 public class UserController {
 
     @Autowired
-    private UserService userService;  // Inject UserService vào controller
+    private UserService userService;
 
     @GetMapping("/login")
     public String showLoginPage() {
-        return "login";  // Trả về view login.html
+        return "login";
     }
 
     @GetMapping("/forgot-password")
     public String showForgotPasswordPage() {
-        return "forgot-password"; // Trả về view forgot-password.html
+        return "forgot-password";
     }
 
     @PostMapping("/forgot-password")
     public String handleForgotPassword(@RequestParam String email, Model model) {
-        Optional<User> user = userService.getUserByEmail(email);  // Kiểm tra xem email có tồn tại trong cơ sở dữ liệu không
+        Optional<User> user = userService.getUserByEmail(email);
         if (user.isPresent()) {
-            // Giả sử bạn gửi email khôi phục mật khẩu thành công ở đây.
             model.addAttribute("message", "Chúng tôi đã gửi cho bạn liên kết đặt lại mật khẩu qua email của bạn.");
         } else {
             model.addAttribute("error", "Email không tồn tại trong hệ thống.");
         }
-        return "forgot-password"; // Trả về trang forgot-password.html với thông báo
+        return "forgot-password";
     }
 
     @PostMapping("/login")
     public String handleLogin(@RequestParam String email, @RequestParam String password, Model model) {
-        Optional<User> user = userService.getUserByEmail(email);  // Lấy thông tin người dùng theo email
-        if (user.isPresent() && user.get().getPassword().equals(password)) {  // Kiểm tra mật khẩu
-            // Nếu đăng nhập thành công, chuyển hướng đến trang user list
-            return "redirect:/users-list";  // Điều hướng đến trang user list
+        Optional<User> user = userService.getUserByEmail(email);
+        if (user.isPresent() && user.get().getPassword().equals(password)) {
+            return "redirect:/users-list";
         } else {
-            // Nếu thất bại, quay lại trang login với thông báo lỗi
             model.addAttribute("error", "Sai email hoặc mật khẩu.");
             return "login";
         }
@@ -55,7 +52,7 @@ public class UserController {
     @GetMapping("/users-list")
     public String showUserList(Model model) {
         model.addAttribute("users", userService.getAllUsers());
-        return "users-list"; // Trả về view users-list.html
+        return "users-list";
     }
 
 
