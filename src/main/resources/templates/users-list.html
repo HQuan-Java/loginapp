@@ -22,7 +22,14 @@
         </nav>
     </div>
     <div class="profile">
-        <a href="#">Profile</a>
+        <a href="#" class="profile-link">Profile</a>
+        <div class="profile-dropdown">
+            <a th:href="@{/profile}">Thông tin tài khoản</a>
+            <form th:action="@{/logout}" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <button type="submit">Đăng xuất</button>
+            </form>
+        </div>
     </div>
 </header>
 
@@ -37,7 +44,7 @@
 
 <!-- Modal Thêm Mới -->
 <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="accountModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="accountModalLabel">Thông tin tài khoản</h5>
@@ -48,16 +55,16 @@
                     <div class="row mb-3">
                         <div class="col">
                             <label for="name" class="form-label">Tên</label>
-                            <input type="text" class="form-control" id="name" placeholder="Tên">
+                            <input type="text" class="form-control" id="name" placeholder="Nhập tên">
                         </div>
                         <div class="col">
                             <label for="employeeCode" class="form-label">Mã nhân sự</label>
-                            <input type="text" class="form-control" id="employeeCode" placeholder="Mã nhân sự">
+                            <input type="text" class="form-control" id="employeeCode" placeholder="Nhập mã nhân sự">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email">
+                        <input type="email" class="form-control" id="email" placeholder="Nhập email">
                     </div>
                     <div class="row mb-3">
                         <div class="col">
@@ -84,7 +91,6 @@
         </div>
     </div>
 </div>
-
 <!-- Table -->
 <div class="container">
     <div class="search-container">

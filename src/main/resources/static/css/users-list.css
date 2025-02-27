@@ -68,7 +68,7 @@ nav a.active-link::after {
     width: 100%;
 }
 
-.profile a {
+/*.profile a {
     text-decoration: none;
     color: #444;
     font-size: 14px;
@@ -76,14 +76,56 @@ nav a.active-link::after {
 
 .profile a:hover {
     text-decoration: underline;
-}
+}*/
 
 .profile {
     display: flex;
     align-items: center;
     margin-left: auto;
+    position: relative;
 }
 
+.profile-link {
+    text-decoration: none;
+    color: #444;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: block; /* Để có thể padding liên kết */
+}
+
+.profile-link:hover {
+    text-decoration: none; /* Loại bỏ underline khi hover */
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 160px;
+    z-index: 1;
+    display: none; /* Ẩn mặc định */
+}
+
+.profile:hover .profile-dropdown {
+    display: block; /* Hiển thị dropdown khi hover vào .profile */
+}
+
+.profile-dropdown a {
+    color: black;
+    font-size: 14px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.profile-dropdown a:hover {
+    background-color: #ddd;
+}
 
 .breadcrumbs {
     display: flex;
@@ -158,6 +200,7 @@ div.container {
 .table thead th {
     height: 45px;
     background-color: rgba(249, 250, 251, 1);
+    color: rgba(107, 114, 128, 1);
     padding: 15px;
     font-size: 12px;
     line-height: 1;
@@ -256,4 +299,19 @@ table thead th:first-child {
 .status-inactive {
     background-color: rgba(217, 217, 217, 1);
     color: rgba(0, 0, 0, 1);
+}
+.modal-dialog{
+         max-width: 95%;
+        margin: 10px;
+}
+
+.modal-content {
+     transition: transform 0.3s ease, opacity 0.3s ease;
+     transform: translateY(-20px);
+     opacity: 0;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
 }
