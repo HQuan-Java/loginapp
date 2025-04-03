@@ -38,3 +38,9 @@ body {
     margin: 30px auto 0;
 }
 
+.login-card .error-message p {
+    padding: 0;
+    line-height: 1.2; /* Điều chỉnh line height */
+    color: red;
+    font-size: 0.9rem;
+}
